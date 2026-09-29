@@ -16,37 +16,59 @@
     <aside class="sidebar" id="sidebar">
 
         <div class="marca">
+
             <div class="logo">M</div>
 
             <div class="marca-texto">
                 <strong>Portal de Gobernanza</strong>
                 <span>Moura Argentina</span>
             </div>
+
         </div>
 
         <nav class="menu">
 
-            <button class="menu-item activo" onclick="cargarModulo('inicio', this)">
+            <button
+                type="button"
+                class="menu-item activo"
+                onclick="cargarModulo('inicio', this)"
+            >
                 <span class="menu-icono">⌂</span>
                 <span>Inicio</span>
             </button>
 
-            <button class="menu-item" onclick="cargarModulo('nps', this)">
+            <button
+                type="button"
+                class="menu-item"
+                onclick="cargarModulo('nps', this)"
+            >
                 <span class="menu-icono">◎</span>
                 <span>NPS</span>
             </button>
 
-            <button class="menu-item" onclick="cargarModulo('planeamiento', this)">
+            <button
+                type="button"
+                class="menu-item"
+                onclick="cargarModulo('planeamiento', this)"
+            >
                 <span class="menu-icono">◆</span>
                 <span>Planeamiento Estratégico</span>
             </button>
 
-            <button class="menu-item" onclick="cargarModulo('gpd', this)">
+            <button
+                type="button"
+                class="menu-item"
+                onclick="cargarModulo('gpd', this)"
+            >
                 <span class="menu-icono">⚡</span>
                 <span>GPD Ágil</span>
             </button>
 
-            <button class="menu-item" onclick="cargarModulo('comites', this)">
+            <button
+                type="button"
+                class="menu-item"
+                onclick="cargarModulo('comites', this)"
+            >
                 <span class="menu-icono">▦</span>
                 <span>Comités</span>
             </button>
@@ -55,7 +77,7 @@
 
         <div class="sidebar-footer">
             <span class="estado"></span>
-            Versión demostrativa
+            <span>Versión demostrativa</span>
         </div>
 
     </aside>
@@ -65,7 +87,14 @@
 
         <header class="barra-superior">
 
-            <button class="boton-menu" onclick="alternarMenu()">☰</button>
+            <button
+                type="button"
+                class="boton-menu"
+                onclick="alternarMenu()"
+                aria-label="Abrir menú"
+            >
+                ☰
+            </button>
 
             <div>
                 <p class="ubicacion">Gestión Estratégica</p>
@@ -73,17 +102,21 @@
             </div>
 
             <div class="usuario">
+
                 <div class="avatar">SK</div>
 
                 <div class="usuario-texto">
                     <strong>Sofia Keidel</strong>
                     <span>Gobernanza y Proyectos Estratégicos</span>
                 </div>
+
             </div>
 
         </header>
 
-        <section id="contenido" class="contenido"></section>
+        <section id="contenido" class="contenido">
+            <!-- El contenido se carga desde script.js -->
+        </section>
 
     </main>
 
@@ -92,7 +125,14 @@
 
         <div class="dialogo-contenido">
 
-            <button class="cerrar-dialogo" onclick="cerrarDialogo()">×</button>
+            <button
+                type="button"
+                class="cerrar-dialogo"
+                onclick="cerrarDialogo()"
+                aria-label="Cerrar ventana"
+            >
+                ×
+            </button>
 
             <div id="dialogo-informacion"></div>
 
@@ -103,6 +143,7 @@
     <!-- Aviso inferior -->
     <div id="aviso" class="aviso"></div>
 
+    <!-- Archivo JavaScript -->
     ./script.jsscript>
 
 </body>
