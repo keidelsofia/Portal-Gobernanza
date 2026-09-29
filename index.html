@@ -7,23 +7,755 @@
 
     <title>Portal de Gobernanza</title>
 
-    <link rel="stylesheet" href="./style.css">
+    <style>
+        :root {
+            --verde-oscuro: #063f2b;
+            --verde: #087668;
+            --verde-claro: #22a96f;
+            --verde-suave: #e7f5ef;
+            --azul: #3169b1;
+            --naranja: #ed9138;
+            --violeta: #7255b5;
+            --fondo: #f2f5f7;
+            --blanco: #ffffff;
+            --texto: #162c3a;
+            --texto-suave: #6e7e88;
+            --borde: #e0e8ec;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            color: var(--texto);
+            background: var(--fondo);
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* Menú lateral */
+
+        .sidebar {
+            *osition: fixed;
+            top: 0*
+            bottom: 0;
+          * left: 0;
+            z-index: 100*
+
+            display: flex;
+     *      flex-direction: column;
+
+   *        width: 270px;
+            *adding: 24px 18px;
+
+            co*or: var(--blanco);
+            bac*ground:
+                radial-gra*ient(
+                    circle a* 10% 8%,
+                    rgba(*6, 204, 137, 0.35),
+              *     transparent 28%
+             *  ),
+                linear-gradie*t(
+                    160deg,
+   *                #086448 0%,
+      *             #063f2b 58%,
+        *           #032b20 100%
+          *     );
+
+            box-shadow: 1*px 0 35px rgba(4, 49, 34, 0.18);
+ *          transition: transform 0.*s ease;
+        }
+
+        .marca *
+            display: flex;
+      *     align-items: center;
+        *   gap: 12px;
+            padding:*3px 7px 28px;
+        }
+
+        .*ogo {
+            display: grid;
+ *          place-items: center;
+
+  *         width: 48px;
+            *eight: 48px;
+
+            color: v*r(--verde-oscuro);
+            bac*ground: var(--blanco);
+
+          * border-radius: 17px 7px 17px 7px;*            font-size: 23px;
+     *      font-weight: 800;
+        }
+*        .marca-texto {
+           *display: flex;
+            flex-di*ection: column;
+        }
+
+       *.marca-texto strong {
+            *ont-size: 16px;
+        }
+
+       *.marca-texto span {
+            ma*gin-top: 3px;
+            color: r*ba(255, 255, 255, 0.65);
+         *  font-size: 12px;
+        }
+
+    *   .menu {
+            display: fl*x;
+            flex-direction: col*mn;
+            gap: 8px;
+        *
+
+        .menu-item {
+           *display: flex;
+            align-i*ems: center;
+            gap: 12px*
+
+            width: 100%;
+       *    padding: 13px 14px;
+
+         *  color: rgba(255, 255, 255, 0.78)*
+            background: transpare*t;
+
+            border: 0;
+       *    border-radius: 16px 7px 16px 7*x;
+
+            font-size: 14px;
+ *          text-align: left;
+      *     cursor: pointer;
+
+           *transition:
+                backgr*und 0.2s ease,
+                col*r 0.2s ease,
+                trans*orm 0.2s ease;
+        }
+
+        *menu-item:hover {
+            colo*: var(--blanco);
+            backg*ound: rgba(255, 255, 255, 0.11);
+ *          transform: translateX(4p*);
+        }
+
+        .menu-item.a*tivo {
+            color: var(--ve*de-oscuro);
+            background* var(--blanco);
+            box-sh*dow: 0 12px 25px rgba(0, 0, 0, 0.1*);
+        }
+
+        .menu-icono *
+            display: grid;
+      *     place-items: center;
+
+       *    min-width: 32px;
+            h*ight: 32px;
+
+            backgroun*: rgba(255, 255, 255, 0.11);
+     *      border-radius: 11px 5px 11px*5px;
+            font-size: 16px;
+*       }
+
+        .menu-item.activ* .menu-icono {
+            color: *ar(--blanco);
+            background: var(--verde);
+        }
+
+        .sidebar-footer {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            margin-top: auto;
+            padding: 15px 10px;
+
+            color: rgba(255, 255, 255, 0.62);
+            font-size: 12px;
+        }
+
+        .estado {
+            width: 8px;
+            height: 8px;
+            background: #42d48c;
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px rgba(66, 212, 140, 0.13);
+        }
+
+        /* Aplicación principal */
+
+        .aplicacion {
+         *  min-height: 100vh;
+            m*rgin-left: 270px;
+        }
+
+     *  .barra-superior {
+            po*ition: sticky;
+            top: 0;*            z-index: 50;
+
+        *   display: flex;
+            alig*-items: center;
+            gap: 1*px;
+
+            min-height: 85px;*            padding: 16px 33px;
+
+ *          background: rgba(255, 25*, 255, 0.91);
+            border-b*ttom: 1px solid var(--borde);
+    *       backdrop-filter: blur(14px)*
+        }
+
+        .boton-menu {
+*           display: none;
+        *   padding: 8px 11px;
+
+           *color: var(--verde-oscuro);
+      *     background: var(--verde-suave*;
+
+            border: 0;
+        *   border-radius: 11px;
+          * font-size: 20px;
+            curs*r: pointer;
+        }
+
+        .ub*cacion {
+            margin-bottom* 2px;
+            color: var(--tex*o-suave);
+            font-size: 1*px;
+        }
+
+        #titulo-pag*na {
+            font-size: 21px;
+*       }
+
+        .usuario {
+     *      display: flex;
+            a*ign-items: center;
+            gap* 11px;
+            margin-left: au*o;
+        }
+
+        .avatar {
+  *         display: grid;
+          * place-items: center;
+
+           *width: 43px;
+            height: 4*px;
+
+            color: var(--blan*o);
+            background: linear*gradient(135deg, var(--verde), var*--verde-claro));
+
+            bord*r-radius: 50% 50% 50% 19%;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .usuario-texto {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .usuario-texto strong {
+            font-size: 13px;
+        }
+
+        .usuario-texto span {
+            margin-top: 3px;
+            color: var(--texto-suave);
+            font-size: 11px;
+        }
+
+        .contenido {
+            max-width: 1450px;
+            margin: 0 auto;
+            padding: 34px;
+        }
+
+        /* Portada */
+
+        .bienvenida {
+*           position: relative;
+   *        overflow: hidden;
+
+       *    display: grid;
+            gri*-template-columns: 1.35fr 0.65fr;
+*           align-items: center;
+  *         gap: 28px;
+
+            m*n-height: 300px;
+            paddi*g: 48px;
+
+            color: var(-*blanco);
+            background:
+ *              radial-gradient(
+   *                circle at 83% 16%,*                    rgba(78, 224, *61, 0.46),
+                    tra*sparent 24%
+                ),
+   *            linear-gradient(135deg* #063f2b, #0a8068);
+
+            b*rder-radius: 35px 12px 35px 12px;
+*           box-shadow: 0 18px 45px*rgba(18, 59, 45, 0.15);
+        }
+*        .bienvenida::after {
+     *      content: "";
+            pos*tion: absolute;
+            right:*-90px;
+            bottom: -145px;*
+            width: 350px;
+       *    height: 350px;
+
+            bo*der: 58px solid rgba(255, 255, 255* 0.08);
+            border-radius:*50%;
+        }
+
+        .etiqueta *
+            display: inline-flex;*            width: fit-content;
+  *         margin-bottom: 18px;
+    *       padding: 8px 14px;
+
+       *    color: #dcfff0;
+            ba*kground: rgba(255, 255, 255, 0.12)*
+
+            border: 1px solid rg*a(255, 255, 255, 0.19);
+          * border-radius: 999px;
+
+          * font-size: 12px;
+            font*weight: 600;
+        }
+
+        .b*envenida h1 {
+            max-widt*: 690px;
+            margin-bottom* 16px;
+
+            font-size: cla*p(35px, 5vw, 56px);
+            li*e-height: 1.04;
+        }
+
+       *.bienvenida p {
+            max-wi*th: 680px;
+            color: rgba*255, 255, 255, 0.78);
+            *ont-size: 16px;
+            line-h*ight: 1.65;
+        }
+
+        .il*stracion {
+            position: r*lative;
+            z-index: 2;
+  *         display: grid;
+          * place-items: center;
+        }
+
+ *      .circulo-principal {
+            display: grid;
+            place-items: center;
+
+            width: 180px;
+            height: 180px;
+
+            background: rgba(255, 255, 255, 0.13);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50% 50% 50% 24%;
+
+            box-shadow: inset 0 0 38px rgba(255, 255, 255, 0.09);
+
+            font-size: 65px;
+            transform: rotate(-7deg);
+        }
+
+        .circulo-principal span {
+            transform: rotate(7deg);
+        }
+
+        /* Títulos */
+
+        .encabezado-seccion {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 20px;
+
+            margin: 39px 0 21px;
+        }
+
+        .encabezado-seccion h2 {
+            margin-bottom: 6px;
+            font-size: 25px;
+        }
+
+        .encabezado-seccion p {
+            color: var(--texto-suave);
+            font-size: 14px;
+        }
+
+        /* Módulos */
+
+        .grilla-modulo* {
+            display: grid;
+    *       grid-template-columns: repe*t(2, minmax(0, 1fr));
+            *ap: 21px;
+        }
+
+        .tarj*ta-modulo {
+            position: *elative;
+            overflow: hid*en;
+
+            min-height: 225px*
+            padding: 29px;
+
+     *      color: var(--texto);
+       *    background: var(--blanco);
+
+  *         border: 1px solid transpa*ent;
+            border-radius: 28*x 9px 28px 9px;
+
+            box-s*adow: 0 10px 30px rgba(23, 45, 61,*0.07);
+            cursor: pointer*
+
+            transition:
+        *       transform 0.3s ease,
+      *         border-color 0.3s ease,
+ *              box-shadow 0.3s ease*
+        }
+
+        .tarjeta-modul*::after {
+            content: "";*            position: absolute;
+  *         right: -40px;
+           *bottom: -52px;
+
+            width:*135px;
+            height: 135px;
+*            background: var(--colo*-suave);
+            border-radius* 50%;
+            transition: tran*form 0.3s ease;
+        }
+
+       *.tarjeta-modulo:hover {
+          * border-color: var(--color);
+     *      box-shadow: 0 20px 45px rgba*23, 45, 61, 0.14);
+            tra*sform: translateY(-7px) rotate(-0.*deg);
+        }
+
+        .tarjeta-*odulo:hover::after {
+            t*ansform: scale(1.5);
+        }
+
+  *     .icono-modulo {
+            d*splay: grid;
+            place-ite*s: center;
+
+            width: 55p*;
+            height: 55px;
+      *     margin-bottom: 23px;
+
+       *    color: var(--blanco);
+        *   background: var(--color);
+
+    *       border-radius: 19px 7px 19p* 7px;
+            box-shadow: 0 11*x 22px var(--sombra-color);
+
+     *      font-size: 24px;
+        }
+
+*       .tarjeta-modulo h3 {
+      *     margin-bottom: 10px;
+        *   font-size: 20px;
+        }
+
+   *    .tarjeta-modulo p {
+          * position: relative;
+            z*index: 2;
+
+            max-width: *0%;
+            color: var(--texto*suave);
+            font-size: 14p*;
+            line-height: 1.55;
+ *      }
+
+        .flecha {
+       *    position: absolute;
+          * right: 25px;
+            bottom: *2px;
+            z-index: 2;
+
+    *       color: var(--color);
+      *     font-size: 23px;
+            *ont-weight: 700;
+        }
+
+      * .nps {
+            --color: #0876*8;
+            --color-suave: #dcf*eb;
+            --sombra-color: rgba(8, 118, 104, 0.23);
+        }
+
+        .planeamiento {
+            --color: #3169b1;
+            --color-suave: #e1ebfa;
+            --sombra-color: rgba(49, 105, 177, 0.23);
+        }
+
+        .gpd {
+            --color: #ed9138;
+            --color-suave: #ffedd9;
+            --sombra-color: rgba(237, 145, 56, 0.23);
+        }
+
+        .comites {
+            --color: #7255b5;
+            --color-suave: #ebe6f7;
+            --sombra-color: rgba(114, 85, 181, 0.23);
+        }
+
+        /* Pantallas internas */
+
+        .panel-encabezado {
+            padding: 40px;
+
+            color: var(--blanco);
+            background: linear-gradient(
+                135deg,
+                var(--color-1),
+                var(--color-2)
+            );
+
+            border-radius: 32px 10px 32px 10px;
+            box-shadow: 0 18px 43px rgba(23, 45, 61, 0.14);
+        }
+
+        .panel-encabezado h1 {
+            margin-bottom: 11px;
+            font-size: 39px;
+        }
+
+        .panel-encabezado p {
+            max-width: 700px;
+            color: rgba(255, 255, 255, 0.78);
+            line-height: 1.58;
+        }
+
+        .volver {
+            display: inline-flex;
+            margin-bottom: 23px;
+            padding: 8px 13px;
+
+            color: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.12);
+
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 12px 5px 12px 5px;
+
+            cursor: pointer;
+        }
+
+        .grilla-opciones {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 19px;
+
+            margin-top: 28px;
+        }
+
+        .opcion {
+            min-height: 165px;
+            padding: 25px;
+
+            background: var(--blanco);
+
+            border: 1px solid var(--borde);
+            border-radius: 23px 8px 23px 8px;
+
+            box-shadow: 0 9px 25px rgba(22, 42, 55, 0.06);
+            cursor: pointer;
+
+            transition:
+                border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .opcion:hover {
+            border-color: var(--verde);
+            box-shadow: 0 15px 35px rgba(22, 42, 55, 0.12);
+            transform: translateY(-5px);
+        }
+
+        .opcion span {
+            display: block;
+            margin-bottom: 14px;
+            font-size: 28px;
+        }
+
+        .opcion h3 {
+            margin-bottom: 8px;
+        }
+
+        .opcion p {
+            color: var(--texto-suave);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Ventana emergente */
+
+        dialog {
+            width: min(540px, calc(100% - 30px));
+            margin: auto;
+
+            border: 0;
+            border-radius: 29px 10px 29px 10px;
+
+            box-shadow: 0 30px 80px rgba(7, 35, 27, 0.30);
+        }
+
+        dialog::backdrop {
+            background: rgba(5, 28, 22, 0.55);
+            backdrop-filter: blur(4px);
+        }
+
+        .dialogo-contenido {
+            position: relative;
+            padding: 39px;
+        }
+
+        .dialogo-contenido h2 {
+            margin-bottom: 13px;
+            color: var(--verde-oscuro);
+        }
+
+        .dialogo-contenido p {
+            color: var(--texto-suave);
+            line-height: 1.6;
+        }
+
+        .cerrar-dialogo {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+
+            width: 36px;
+            height: 36px;
+
+            color: var(--texto-suave);
+            background: var(--fondo);
+
+            border: 0;
+            border-radius: 50%;
+
+            font-size: 21px;
+            cursor: pointer;
+        }
+
+        .aviso {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            z-index: 200;
+
+            padding: 14px 18px;
+
+            color: var(--blanco);
+            background: var(--verde-oscuro);
+
+            border-radius: 16px 6px 16px 6px;
+            box-shadow: 0 16px 40px rgba(23, 45, 61, 0.18);
+
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .aviso.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Celular y tablet */
+
+        @media (max-width: 1050px) {
+            .grilla-opciones {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 800px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.abierto {
+                transform: translateX(0);
+            }
+
+            .aplicacion {
+                margin-left: 0;
+            }
+
+            .boton-menu {
+                display: block;
+            }
+
+            .usuario-texto {
+                display: none;
+            }
+
+            .contenido {
+                padding: 23px 17px;
+            }
+
+            .bienvenida {
+                grid-template-columns: 1fr;
+                padding: 34px 26px;
+            }
+
+            .ilustracion {
+                display: none;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .grilla-modulos,
+            .grilla-opciones {
+                grid-template-columns: 1fr;
+            }
+
+            .barra-superior {
+                padding: 14px 17px;
+            }
+
+            .bienvenida h1 {
+                font-size: 35px;
+            }
+
+            .contenido {
+                padding-top: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Menú lateral -->
     <aside class="sidebar" id="sidebar">
 
         <div class="marca">
-
             <div class="logo">M</div>
 
             <div class="marca-texto">
                 <strong>Portal de Gobernanza</strong>
                 <span>Moura Argentina</span>
             </div>
-
         </div>
 
         <nav class="menu">
@@ -31,6 +763,7 @@
             <button
                 type="button"
                 class="menu-item activo"
+                data-modulo="inicio"
                 onclick="cargarModulo('inicio', this)"
             >
                 <span class="menu-icono">⌂</span>
@@ -40,6 +773,7 @@
             <button
                 type="button"
                 class="menu-item"
+                data-modulo="nps"
                 onclick="cargarModulo('nps', this)"
             >
                 <span class="menu-icono">◎</span>
@@ -49,6 +783,7 @@
             <button
                 type="button"
                 class="menu-item"
+                data-modulo="planeamiento"
                 onclick="cargarModulo('planeamiento', this)"
             >
                 <span class="menu-icono">◆</span>
@@ -58,6 +793,7 @@
             <button
                 type="button"
                 class="menu-item"
+                data-modulo="gpd"
                 onclick="cargarModulo('gpd', this)"
             >
                 <span class="menu-icono">⚡</span>
@@ -67,6 +803,7 @@
             <button
                 type="button"
                 class="menu-item"
+                data-modulo="comites"
                 onclick="cargarModulo('comites', this)"
             >
                 <span class="menu-icono">▦</span>
@@ -82,7 +819,6 @@
 
     </aside>
 
-    <!-- Contenido principal -->
     <main class="aplicacion">
 
         <header class="barra-superior">
@@ -102,25 +838,20 @@
             </div>
 
             <div class="usuario">
-
                 <div class="avatar">SK</div>
 
                 <div class="usuario-texto">
                     <strong>Sofia Keidel</strong>
                     <span>Gobernanza y Proyectos Estratégicos</span>
                 </div>
-
             </div>
 
         </header>
 
-        <section id="contenido" class="contenido">
-            <!-- El contenido se completa automáticamente desde script.js -->
-        </section>
+        <section id="contenido" class="contenido"></section>
 
     </main>
 
-    <!-- Ventana emergente -->
     <dialog id="dialogo">
 
         <div class="dialogo-contenido">
@@ -129,7 +860,7 @@
                 type="button"
                 class="cerrar-dialogo"
                 onclick="cerrarDialogo()"
-                aria-label="Cerrar ventana"
+                aria-label="Cerrar"
             >
                 ×
             </button>
@@ -140,11 +871,437 @@
 
     </dialog>
 
-    <!-- Aviso inferior -->
     <div id="aviso" class="aviso"></div>
 
-    <!-- Conexión con JavaScript -->
-    <script src="./script.js"></script>
+    <script>
+        const contenido = document.getElementById("contenido");
+        const tituloPagina = document.getElementById("titulo-pagina");
+        const dialogo = document.getElementById("dialogo");
+        const dialogoInformacion =
+            document.getElementById("dialogo-informacion");
+        const aviso = document.getElementById("aviso");
+
+        const modulos = {
+            nps: {
+                titulo: "NPS",
+                descripcion:
+                    "Seguimiento de la experiencia de clientes internos y externos, resultados, comentarios y planes de acción.",
+                color1: "#075c45",
+                color2: "#16a078",
+                opciones: [
+                    [
+                        "◉",
+                        "Resultados",
+                        "Visualización de resultados generales y por área."
+                    ],
+                    [
+                        "↗",
+                        "Evolución",
+                        "Consulta de la evolución histórica del indicador."
+                    ],
+                    [
+                        "☑",
+                        "Planes de acción",
+                        "Seguimiento de las oportunidades de mejora identificadas."
+                    ],
+                    [
+                        "✎",
+                        "Comentarios",
+                        "Análisis y clasificación de comentarios recibidos."
+                    ],
+                    [
+                        "♧",
+                        "Segmentación",
+                        "Consulta por cliente, área proveedora o período."
+                    ],
+                    [
+                        "▥",
+                        "Panel de Power BI",
+                        "Acceso futuro al panel ejecutivo de NPS."
+                    ]
+                ]
+            },
+
+            planeamiento: {
+                titulo: "Planeamiento Estratégico",
+                descripcion:
+                    "Espacio para centralizar definiciones estratégicas, objetivos, indicadores y avances.",
+                color1: "#244b86",
+                color2: "#4386d7",
+                opciones: [
+                    [
+                        "◇",
+                        "Análisis SWOT",
+                        "Fortalezas, oportunidades, debilidades y amenazas."
+                    ],
+                    [
+                        "◎",
+                        "Objetivos estratégicos",
+                        "Consulta de objetivos y focos prioritarios."
+                    ],
+                    [
+                        "▥",
+                        "Indicadores",
+                        "Seguimiento de indicadores estratégicos."
+                    ],
+                    [
+                        "↗",
+                        "Evolución",
+                        "Visualización de avances y tendencias."
+                    ],
+                    [
+                        "☰",
+                        "Documentación",
+                        "Presentaciones y materiales de soporte."
+                    ],
+                    [
+                        "☑",
+                        "Seguimiento",
+                        "Control de compromisos y acciones estratégicas."
+                    ]
+                ]
+            },
+
+            gpd: {
+                titulo: "GPD Ágil",
+                descripcion:
+                    "Gestión organizada desde los desafíos estratégicos hasta las iniciativas y actividades de cada área.",
+                color1: "#c96f21",
+                color2: "#f3a24b",
+                opciones: [
+                    ["▦", "Áreas", "Selección del área responsable."],
+                    [
+                        "◆",
+                        "Desafíos",
+                        "Definición y consulta de desafíos estratégicos."
+                    ],
+                    [
+                        "◎",
+                        "Objetivos",
+                        "Consulta de los objetivos asociados."
+                    ],
+                    [
+                        "↗",
+                        "Resultados clave",
+                        "Seguimiento de resultados y métricas."
+                    ],
+                    [
+                        "⚡",
+                        "Iniciativas",
+                        "Gestión de iniciativas priorizadas."
+                    ],
+                    [
+                        "☑",
+                        "Actividades",
+                        "Detalle y control de actividades."
+                    ]
+                ]
+            },
+
+            comites: {
+                titulo: "Comités",
+                descripcion:
+                    "Centralización de reuniones, calendarios, acciones, actas e indicadores de los comités de gestión.",
+                color1: "#594093",
+                color2: "#896fca",
+                opciones: [
+                    [
+                        "▦",
+                        "Comités activos",
+                        "Consulta de los comités vigentes."
+                    ],
+                    [
+                        "□",
+                        "Calendario",
+                        "Próximas reuniones y agenda."
+                    ],
+                    [
+                        "☑",
+                        "Acciones",
+                        "Seguimiento de acciones y responsables."
+                    ],
+                    [
+                        "✓",
+                        "Asistencia",
+                        "Registro de asistencia a reuniones."
+                    ],
+                    [
+                        "☰",
+                        "Actas",
+                        "Acceso a actas y documentación."
+                    ],
+                    [
+                        "▥",
+                        "Indicadores",
+                        "Panel general de seguimiento."
+                    ]
+                ]
+            }
+        };
+
+        function seleccionarMenu(nombre) {
+            const botones = document.querySelectorAll(".menu-item");
+
+            botones.forEach(function (boton) {
+                boton.classList.remove("activo");
+
+                if (boton.dataset.modulo === nombre) {
+                    boton.classList.add("activo");
+                }
+            });
+        }
+
+        function cargarModulo(nombre, elementoMenu) {
+            cerrarMenuMovil();
+            seleccionarMenu(nombre);
+
+            if (nombre === "inicio") {
+                cargarInicio();
+                return;
+            }
+
+            const modulo = modulos[nombre];
+
+            if (!modulo) {
+                return;
+            }
+
+            tituloPagina.textContent = modulo.titulo;
+
+            const tarjetas = modulo.opciones
+                .map(function (opcion) {
+                    return `
+                        <article
+                            class="opcion"
+                            onclick="abrirOpcion(
+                                '${opcion[1]}',
+                                '${opcion[2]}'
+                            )"
+                        >
+                            <span>${opcion[0]}</span>
+                            <h3>${opcion[1]}</h3>
+                            <p>${opcion[2]}</p>
+                        </article>
+                    `;
+                })
+                .join("");
+
+            contenido.innerHTML = `
+                <section
+                    class="panel-encabezado"
+                    style="
+                        --color-1: ${modulo.color1};
+                        --color-2: ${modulo.color2};
+                    "
+                >
+                    <span
+                        class="volver"
+                        onclick="cargarInicio()"
+                    >
+                        ← Volver al inicio
+                    </span>
+
+                    <h1>${modulo.titulo}</h1>
+                    <p>${modulo.descripcion}</p>
+                </section>
+
+                <div class="encabezado-seccion">
+                    <div>
+                        <h2>Opciones disponibles</h2>
+                        <p>
+                            Seleccioná una opción para explorar
+                            la maqueta.
+                        </p>
+                    </div>
+                </div>
+
+                <section class="grilla-opciones">
+                    ${tarjetas}
+                </section>
+            `;
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        function cargarInicio() {
+            seleccionarMenu("inicio");
+            tituloPagina.textContent = "Inicio";
+
+            contenido.innerHTML = `
+                <section class="bienvenida">
+
+                    <div>
+                        <span class="etiqueta">
+                            Portal interno | Versión demostrativa
+                        </span>
+
+                        <h1>
+                            La gestión estratégica,
+                            en un solo lugar.
+                        </h1>
+
+                        <p>
+                            Un espacio para acompañar la gobernanza,
+                            facilitar el acceso a la información y
+                            conectar el NPS, el Planeamiento Estratégico,
+                            el GPD Ágil y los Comités.
+                        </p>
+                    </div>
+
+                    <div class="ilustracion">
+                        <div class="circulo-principal">
+                            <span>⚡</span>
+                        </div>
+                    </div>
+
+                </section>
+
+                <div class="encabezado-seccion">
+                    <div>
+                        <h2>Explorá Gobernanza</h2>
+                        <p>
+                            Ingresá al módulo que necesitás
+                            consultar o gestionar.
+                        </p>
+                    </div>
+                </div>
+
+                <section class="grilla-modulos">
+
+                    <article
+                        class="tarjeta-modulo nps"
+                        onclick="cargarModulo('nps')"
+                    >
+                        <div class="icono-modulo">◎</div>
+
+                        <h3>NPS</h3>
+
+                        <p>
+                            Resultados, evolución, comentarios y
+                            seguimiento de planes de acción.
+                        </p>
+
+                        <span class="flecha">→</span>
+                    </article>
+
+                    <article
+                        class="tarjeta-modulo planeamiento"
+                        onclick="cargarModulo('planeamiento')"
+                    >
+                        <div class="icono-modulo">◆</div>
+
+                        <h3>Planeamiento Estratégico</h3>
+
+                        <p>
+                            Objetivos, indicadores, análisis SWOT
+                            y prioridades estratégicas.
+                        </p>
+
+                        <span class="flecha">→</span>
+                    </article>
+
+                    <article
+                        class="tarjeta-modulo gpd"
+                        onclick="cargarModulo('gpd')"
+                    >
+                        <div class="icono-modulo">⚡</div>
+
+                        <h3>GPD Ágil</h3>
+
+                        <p>
+                            Áreas, desafíos, objetivos, resultados
+                            clave, iniciativas y actividades.
+                        </p>
+
+                        <span class="flecha">→</span>
+                    </article>
+
+                    <article
+                        class="tarjeta-modulo comites"
+                        onclick="cargarModulo('comites')"
+                    >
+                        <div class="icono-modulo">▦</div>
+
+                        <h3>Comités</h3>
+
+                        <p>
+                            Calendario, reuniones, acciones,
+                            responsables, actas e indicadores.
+                        </p>
+
+                        <span class="flecha">→</span>
+                    </article>
+
+                </section>
+            `;
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        function abrirOpcion(titulo, descripcion) {
+            dialogoInformacion.innerHTML = `
+                <h2>${titulo}</h2>
+
+                <p>${descripcion}</p>
+
+                <p style="margin-top: 16px;">
+                    Esta sección forma parte de la maqueta inicial.
+                    En una próxima etapa podrá conectarse con
+                    Power BI, SharePoint, Power Apps o una
+                    aplicación desarrollada en Python.
+                </p>
+            `;
+
+            if (typeof dialogo.showModal === "function") {
+                dialogo.showModal();
+            }
+
+            mostrarAviso("Opción seleccionada: " + titulo);
+        }
+
+        function cerrarDialogo() {
+            dialogo.close();
+        }
+
+        function mostrarAviso(mensaje) {
+            aviso.textContent = mensaje;
+            aviso.classList.add("visible");
+
+            setTimeout(function () {
+                aviso.classList.remove("visible");
+            }, 2300);
+        }
+
+        function alternarMenu() {
+            document
+                .getElementById("sidebar")
+                .classList
+                .toggle("abierto");
+        }
+
+        function cerrarMenuMovil() {
+            document
+                .getElementById("sidebar")
+                .classList
+                .remove("abierto");
+        }
+
+        dialogo.addEventListener("click", function (evento) {
+            if (evento.target === dialogo) {
+                cerrarDialogo();
+            }
+        });
+
+        window.addEventListener("DOMContentLoaded", function () {
+            cargarInicio();
+        });
+    </script>
 
 </body>
 
