@@ -2,163 +2,226 @@
 <html lang="es">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Portal de Gobernanza</title>
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-    margin:0;
-    font-family:Segoe UI, Arial, sans-serif;
-    background:#f4f6f9;
+font-family:'Segoe UI',sans-serif;
+background:#eef2f7;
 }
 
-.header{
-    background:#0A5C36;
-    color:white;
-    text-align:center;
-    padding:40px;
+.hero{
+
+background:linear-gradient(135deg,#0a5c36,#0c8a52);
+
+color:white;
+
+padding:80px 40px;
+
+text-align:center;
+
 }
 
-.header h1{
-    margin:0;
-    font-size:40px;
+.hero h1{
+font-size:50px;
+margin-bottom:15px;
 }
 
-.header p{
-    margin-top:10px;
-    font-size:18px;
+.hero p{
+font-size:20px;
+opacity:0.9;
 }
 
-.menu{
-    max-width:1200px;
-    margin:auto;
-    padding:40px;
+.dashboard{
+
+max-width:1300px;
+
+margin:auto;
+
+padding:40px;
+
+margin-top:-40px;
+
 }
 
-.seccion{
-    text-align:center;
-    margin-bottom:40px;
-}
+.kpis{
 
-.tarjetas{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
-}
+display:flex;
 
-.card{
-    width:280px;
-    min-height:180px;
-    border-radius:20px;
-    padding:30px;
-    text-decoration:none;
-    color:white;
-    box-shadow:0 8px 25px rgba(0,0,0,0.15);
-    transition:0.4s;
-}
-    background:white;
-    border-radius:15px;
-    padding:30px;
-    text-decoration:none;
-    color:#333;
-    box-shadow:0 4px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
+gap:20px;
 
-.card:hover{
-    transform:translateY(-5px);
-}
+justify-content:center;
 
-.card h2{
-    color:#0A5C36;
-}
+flex-wrap:wrap;
 
-.resumen{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-    margin-bottom:50px;
+margin-bottom:50px;
+
 }
 
 .kpi{
-    background:white;
-    width:200px;
-    border-radius:12px;
-    padding:20px;
-    text-align:center;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+
+background:white;
+
+width:220px;
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
 }
 
 .numero{
-    font-size:32px;
-    font-weight:bold;
-    color:#0A5C36;
+
+font-size:36px;
+
+font-weight:bold;
+
+color:#0a5c36;
+
+margin-bottom:5px;
+
+}
+
+.titulo{
+
+font-size:14px;
+
+color:#666;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+padding:35px;
+
+border-radius:25px;
+
+text-decoration:none;
+
+color:white;
+
+transition:0.4s;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.card h2{
+margin-bottom:15px;
+font-size:28px;
+}
+
+.card p{
+line-height:1.6;
+}
+
+.gob{
+background:linear-gradient(135deg,#0A5C36,#18A558);
+}
+
+.proy{
+background:linear-gradient(135deg,#004AAD,#2F80ED);
 }
 
 .footer{
-    text-align:center;
-    padding:20px;
-    color:gray;
+
+text-align:center;
+
+padding:30px;
+
+color:#888;
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="header">
-    <h1>Portal de Gobernanza</h1>
-    <p>Gestión Estratégica | Baterías Moura</p>
-</div>
+<section class="hero">
 
-<div class="menu">
+<h1>Portal de Gobernanza</h1>
 
-<div class="resumen">
+<p>Gestión Estratégica | Baterías Moura</p>
+
+</section>
+
+<div class="dashboard">
+
+<div class="kpis">
 
 <div class="kpi">
 <div class="numero">12</div>
-Comités
+<div class="titulo">Comités Activos</div>
 </div>
 
 <div class="kpi">
 <div class="numero">86</div>
-Acciones
+<div class="titulo">Acciones Abiertas</div>
 </div>
 
 <div class="kpi">
 <div class="numero">92%</div>
-NPS
+<div class="titulo">NPS General</div>
 </div>
 
 <div class="kpi">
 <div class="numero">18</div>
-Proyectos
+<div class="titulo">Proyectos Estratégicos</div>
 </div>
 
 </div>
 
-<div class="seccion">
-<h2>Módulos Disponibles</h2>
-</div>
+<div class="cards">
 
-<div class="tarjetas">
+<a href="governanza2>📋 Gobernanza</h2>
 
-<a class="card" href="goobernanza</h2>
 <p>
-NPS, Planeamiento Estratégico, GPD Ágil y Comités.
+Accedé a NPS, Planeamiento Estratégico,
+GPD Ágil y seguimiento de Comités.
 </p>
+
 </a>
 
-#
-<h2>📈 Proyectos Estratégicos</h2>
+<a href="#" class="card progicos</h2>
+
 <p>
-Seguimiento de proyectos, indicadores, hitos y dashboard ejecutivo.
+Visualización ejecutiva de proyectos,
+hitos, riesgos e indicadores.
 </p>
+
 </a>
 
 </div>
@@ -166,8 +229,11 @@ Seguimiento de proyectos, indicadores, hitos y dashboard ejecutivo.
 </div>
 
 <div class="footer">
-Portal de Gobernanza - Versión Beta
+
+Portal de Gobernanza Moura | Versión Beta
+
 </div>
 
 </body>
+
 </html>
