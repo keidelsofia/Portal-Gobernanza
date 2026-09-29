@@ -1,63 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Portal de Gobernanza</title>
 
 <style>
 
 body{
-font-family: Arial;
-background:#f5f5f5;
-margin:0;
+    margin:0;
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#f4f6f9;
 }
 
-header{
-background:#0A5C36;
-color:white;
-padding:20px;
+.header{
+    background:#0A5C36;
+    color:white;
+    text-align:center;
+    padding:40px;
 }
 
-.contenedor{
-padding:40px;
-text-align:center;
+.header h1{
+    margin:0;
+    font-size:40px;
 }
 
-.boton{
-display:inline-block;
-width:250px;
-margin:20px;
-padding:25px;
-background:white;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-text-decoration:none;
-color:#0A5C36;
-font-weight:bold;
-font-size:20px;
+.header p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.menu{
+    max-width:1200px;
+    margin:auto;
+    padding:40px;
+}
+
+.seccion{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.tarjetas{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:300px;
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    text-decoration:none;
+    color:#333;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h2{
+    color:#0A5C36;
+}
+
+.resumen{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:50px;
+}
+
+.kpi{
+    background:white;
+    width:200px;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.numero{
+    font-size:32px;
+    font-weight:bold;
+    color:#0A5C36;
+}
+
+.footer{
+    text-align:center;
+    padding:20px;
+    color:gray;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<header>
-<h1>Portal de Gobernanza</h1>
-</header>
+<div class="header">
+    <h1>Portal de Gobernanza</h1>
+    <p>Gestión Estratégica | Baterías Moura</p>
+</div>
 
-<div class="contenedor">
+<div class="menu">
 
-<a class="boton" hrefnanza
+<div class="resumen">
+
+<div class="kpi">
+<div class="numero">12</div>
+Comités
+</div>
+
+<div class="kpi">
+<div class="numero">86</div>
+Acciones
+</div>
+
+<div class="kpi">
+<div class="numero">92%</div>
+NPS
+</div>
+
+<div class="kpi">
+<div class="numero">18</div>
+Proyectos
+</div>
+
+</div>
+
+<div class="seccion">
+<h2>Módulos Disponibles</h2>
+</div>
+
+<div class="tarjetas">
+
+<a class="card" href="goobernanza</h2>
+<p>
+NPS, Planeamiento Estratégico, GPD Ágil y Comités.
+</p>
 </a>
 
 #
-Proyectos Estratégicos
+<h2>📈 Proyectos Estratégicos</h2>
+<p>
+Seguimiento de proyectos, indicadores, hitos y dashboard ejecutivo.
+</p>
 </a>
 
 </div>
 
-</body>
+</div>
 
+<div class="footer">
+Portal de Gobernanza - Versión Beta
+</div>
+
+</body>
 </html>
