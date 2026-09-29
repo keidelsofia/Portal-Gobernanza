@@ -2,237 +2,108 @@
 <html lang="es">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Gobernanza</title>
 
-<title>Portal de Gobernanza</title>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:'Segoe UI',sans-serif;
-background:#eef2f7;
-}
-
-.hero{
-
-background:linear-gradient(135deg,#0a5c36,#0c8a52);
-
-color:white;
-
-padding:80px 40px;
-
-text-align:center;
-
-}
-
-.hero h1{
-font-size:50px;
-margin-bottom:15px;
-}
-
-.hero p{
-font-size:20px;
-opacity:0.9;
-}
-
-.dashboard{
-
-max-width:1300px;
-
-margin:auto;
-
-padding:40px;
-
-margin-top:-40px;
-
-}
-
-.kpis{
-
-display:flex;
-
-gap:20px;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-margin-bottom:50px;
-
-}
-
-.kpi{
-
-background:white;
-
-width:220px;
-
-padding:25px;
-
-border-radius:20px;
-
-text-align:center;
-
-box-shadow:0 8px 25px rgba(0,0,0,0.08);
-
-}
-
-.numero{
-
-font-size:36px;
-
-font-weight:bold;
-
-color:#0a5c36;
-
-margin-bottom:5px;
-
-}
-
-.titulo{
-
-font-size:14px;
-
-color:#666;
-
-}
-
-.cards{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-gap:25px;
-
-}
-
-.card{
-
-padding:35px;
-
-border-radius:25px;
-
-text-decoration:none;
-
-color:white;
-
-transition:0.4s;
-
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
-
-}
-
-.card:hover{
-
-transform:translateY(-8px);
-
-}
-
-.card h2{
-margin-bottom:15px;
-font-size:28px;
-}
-
-.card p{
-line-height:1.6;
-}
-
-.gob{
-background:linear-gradient(135deg,#0A5C36,#18A558);
-}
-
-.proy{
-background:linear-gradient(135deg,#004AAD,#2F80ED);
-}
-
-.footer{
-
-text-align:center;
-
-padding:30px;
-
-color:#888;
-
-}
-
-</style>
-
+    style.css
 </head>
 
 <body>
 
-<section class="hero">
+    <!-- Menú lateral -->
+    <aside class="sidebar" id="sidebar">
 
-<h1>Portal de Gobernanza</h1>
+        <div class="marca">
+            <div class="logo">M</div>
 
-<p>Gestión Estratégica | Baterías Moura</p>
+            <div class="marca-texto">
+                <strong>Portal de Gobernanza</strong>
+                <span>Moura Argentina</span>
+            </div>
+        </div>
 
-</section>
+        <nav class="menu">
 
-<div class="dashboard">
+            <button class="menu-item activo" onclick="cargarModulo('inicio', this)">
+                <span class="menu-icono">⌂</span>
+                <span>Inicio</span>
+            </button>
 
-<div class="kpis">
+            <button class="menu-item" onclick="cargarModulo('nps', this)">
+                <span class="menu-icono">◎</span>
+                <span>NPS</span>
+            </button>
 
-<div class="kpi">
-<div class="numero">12</div>
-<div class="titulo">Comités Activos</div>
-</div>
+            <button class="menu-item" onclick="cargarModulo('planeamiento', this)">
+                <span class="menu-icono">◆</span>
+                <span>Planeamiento Estratégico</span>
+            </button>
 
-<div class="kpi">
-<div class="numero">86</div>
-<div class="titulo">Acciones Abiertas</div>
-</div>
+            <button class="menu-item" onclick="cargarModulo('gpd', this)">
+                <span class="menu-icono">⚡</span>
+                <span>GPD Ágil</span>
+            </button>
 
-<div class="kpi">
-<div class="numero">92%</div>
-<div class="titulo">NPS General</div>
-</div>
+            <button class="menu-item" onclick="cargarModulo('comites', this)">
+                <span class="menu-icono">▦</span>
+                <span>Comités</span>
+            </button>
 
-<div class="kpi">
-<div class="numero">18</div>
-<div class="titulo">Proyectos Estratégicos</div>
-</div>
+        </nav>
 
-</div>
+        <div class="sidebar-footer">
+            <span class="estado"></span>
+            Versión demostrativa
+        </div>
 
-<div class="cards">
+    </aside>
 
-<a href="governanza2>📋 Gobernanza</h2>
+    <!-- Contenido principal -->
+    <main class="aplicacion">
 
-<p>
-Accedé a NPS, Planeamiento Estratégico,
-GPD Ágil y seguimiento de Comités.
-</p>
+        <header class="barra-superior">
 
-</a>
+            <button class="boton-menu" onclick="alternarMenu()">☰</button>
 
-<a href="#" class="card progicos</h2>
+            <div>
+                <p class="ubicacion">Gestión Estratégica</p>
+                <h2 id="titulo-pagina">Inicio</h2>
+            </div>
 
-<p>
-Visualización ejecutiva de proyectos,
-hitos, riesgos e indicadores.
-</p>
+            <div class="usuario">
+                <div class="avatar">SK</div>
 
-</a>
+                <div class="usuario-texto">
+                    <strong>Sofia Keidel</strong>
+                    <span>Gobernanza y Proyectos Estratégicos</span>
+                </div>
+            </div>
 
-</div>
+        </header>
 
-</div>
+        <section id="contenido" class="contenido"></section>
 
-<div class="footer">
+    </main>
 
-Portal de Gobernanza Moura | Versión Beta
+    <!-- Ventana emergente -->
+    <dialog id="dialogo">
 
-</div>
+        <div class="dialogo-contenido">
+
+            <button class="cerrar-dialogo" onclick="cerrarDialogo()">×</button>
+
+            <div id="dialogo-informacion"></div>
+
+        </div>
+
+    </dialog>
+
+    <!-- Aviso inferior -->
+    <div id="aviso" class="aviso"></div>
+
+    script.jsscript>
 
 </body>
 
